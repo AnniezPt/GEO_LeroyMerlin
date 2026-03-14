@@ -1308,6 +1308,18 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
    ═══════════════════════════════════════════════ */
 @media (max-width: 900px) {
   .nav-links { display: none; }
+  /* Parche visual para el menú activo en móviles */
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    background: var(--bg-primary);
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
   .nav-toggle { display: block; }
   .paradigm-grid, .split, .eeat-grid, .before-after { grid-template-columns: 1fr; }
   .hero-stats { grid-template-columns: 1fr; max-width: 320px; }
@@ -1331,10 +1343,8 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
 </head>
 <body>
 
-<!-- Scroll Progress -->
 <div class="scroll-progress" id="scrollProgress"></div>
 
-<!-- Navigation -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="#" class="nav-logo"><span>GEO</span> 2026</a>
@@ -1353,9 +1363,6 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
   </div>
 </nav>
 
-<!-- ============================================
-     HERO
-     ============================================ -->
 <section class="hero" id="hero">
   <div class="hero-bg">
     <div class="hero-image"></div>
@@ -1387,9 +1394,6 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
   </div>
 </section>
 
-<!-- ============================================
-     EDITORIAL TEXT SECTION 1
-     ============================================ -->
 <div class="editorial reveal">
   <div class="editorial-content">
     <p class="lead">La busqueda tal y como la conociamos ha dejado de existir. Los motores de inteligencia artificial generativa han cambiado las reglas del juego para siempre.</p>
@@ -1402,9 +1406,6 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
   </div>
 </div>
 
-<!-- ============================================
-     PHOTO BREAK 1 - AI & Technology
-     ============================================ -->
 <div class="photo-break">
   <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1920&q=80" alt="Inteligencia artificial y datos" loading="lazy">
   <div class="photo-break-overlay">
@@ -1415,9 +1416,6 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
   </div>
 </div>
 
-<!-- ============================================
-     PARADIGM SHIFT + RAG DIAGRAM
-     ============================================ -->
 <section class="paradigm" id="paradigma">
   <div class="container">
     <div class="paradigm-grid">
@@ -1431,38 +1429,28 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
         </div>
       </div>
       <div class="reveal-right">
-        <!-- SVG RAG Process Diagram -->
         <div class="diagram-container">
           <svg viewBox="0 0 500 420" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Step 1 -->
             <rect x="140" y="10" width="220" height="60" rx="12" fill="#1c2333" stroke="#e8455e" stroke-width="1.5"/>
             <text x="250" y="32" text-anchor="middle" fill="#e8455e" font-family="Space Grotesk,sans-serif" font-size="11" font-weight="700">PASO 1</text>
             <text x="250" y="52" text-anchor="middle" fill="#f0f6fc" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="600">Consulta del usuario</text>
-            <!-- Arrow 1 -->
             <line x1="250" y1="70" x2="250" y2="105" stroke="#6e7681" stroke-width="1.5" stroke-dasharray="4 3"/>
             <polygon points="244,100 256,100 250,112" fill="#6e7681"/>
-            <!-- Step 2 -->
             <rect x="100" y="115" width="300" height="60" rx="12" fill="#1c2333" stroke="#58a6ff" stroke-width="1.5"/>
             <text x="250" y="137" text-anchor="middle" fill="#58a6ff" font-family="Space Grotesk,sans-serif" font-size="11" font-weight="700">PASO 2</text>
             <text x="250" y="157" text-anchor="middle" fill="#f0f6fc" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="600">Recuperacion &amp; Embedding</text>
-            <!-- Arrow 2 -->
             <line x1="250" y1="175" x2="250" y2="210" stroke="#6e7681" stroke-width="1.5" stroke-dasharray="4 3"/>
             <polygon points="244,205 256,205 250,217" fill="#6e7681"/>
-            <!-- Step 3 -->
             <rect x="100" y="220" width="300" height="60" rx="12" fill="#1c2333" stroke="#ffa657" stroke-width="1.5"/>
             <text x="250" y="242" text-anchor="middle" fill="#ffa657" font-family="Space Grotesk,sans-serif" font-size="11" font-weight="700">PASO 3</text>
             <text x="250" y="262" text-anchor="middle" fill="#f0f6fc" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="600">Evaluacion: Autoridad + Frescura</text>
-            <!-- Arrow 3 -->
             <line x1="250" y1="280" x2="250" y2="315" stroke="#6e7681" stroke-width="1.5" stroke-dasharray="4 3"/>
             <polygon points="244,310 256,310 250,322" fill="#6e7681"/>
-            <!-- Step 4 -->
             <rect x="80" y="325" width="340" height="70" rx="14" fill="rgba(232,69,94,0.1)" stroke="#e8455e" stroke-width="2"/>
             <text x="250" y="350" text-anchor="middle" fill="#e8455e" font-family="Space Grotesk,sans-serif" font-size="11" font-weight="700">PASO 4</text>
             <text x="250" y="373" text-anchor="middle" fill="#f0f6fc" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="700">Generacion: Respuesta con fuentes</text>
-            <!-- Side labels -->
             <text x="30" y="150" fill="#8b949e" font-family="Inter,sans-serif" font-size="9" transform="rotate(-90,30,150)">Fragmentos tokenizados</text>
             <text x="470" y="250" fill="#8b949e" font-family="Inter,sans-serif" font-size="9" transform="rotate(90,470,250)">Solo 2-7 dominios citados</text>
-            <!-- Decorative dots -->
             <circle cx="60" y="45" r="3" fill="#e8455e" opacity="0.3"/>
             <circle cx="440" y="345" r="3" fill="#58a6ff" opacity="0.3"/>
             <circle cx="450" y="130" r="4" fill="#ffa657" opacity="0.2"/>
@@ -1476,15 +1464,11 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
 
 <div class="divider"></div>
 
-<!-- ============================================
-     KEY NUMBERS with DONUT CHARTS
-     ============================================ -->
 <section id="numeros" style="padding-bottom: 4rem;">
   <div class="container">
     <div class="section-label reveal">Los numeros</div>
     <h2 class="section-title reveal">La adopcion masiva de la busqueda por IA</h2>
 
-    <!-- Donut Charts -->
     <div class="donut-row reveal">
       <div class="donut-item">
         <svg viewBox="0 0 100 100">
@@ -1545,9 +1529,6 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
   </div>
 </section>
 
-<!-- ============================================
-     SPLIT IMAGE + TEXT: Why GEO now?
-     ============================================ -->
 <div class="split reveal">
   <div class="split-image">
     <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=960&q=80" alt="Datos y servidores tecnologia" loading="lazy">
@@ -1563,9 +1544,6 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
 
 <div class="divider"></div>
 
-<!-- ============================================
-     SEO vs GEO COMPARISON
-     ============================================ -->
 <section class="comparison" id="capas">
   <div class="container">
     <div class="section-label reveal">Capitulo 3</div>
@@ -1605,9 +1583,6 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
   </div>
 </section>
 
-<!-- ============================================
-     PHOTO BREAK 2 - Editorial / Content
-     ============================================ -->
 <div class="photo-break">
   <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1920&q=80" alt="Datos y visualizaciones analiticas" loading="lazy">
   <div class="photo-break-overlay">
@@ -1618,16 +1593,12 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
   </div>
 </div>
 
-<!-- ============================================
-     9 STRATEGIES + BAR CHART
-     ============================================ -->
 <section id="estrategias">
   <div class="container">
     <div class="section-label reveal">Capitulo 4 & 5</div>
     <h2 class="section-title reveal">Las 9 estrategias probadas de GEO</h2>
     <p class="section-desc reveal">Basadas en el estudio GEO-Bench de Princeton: 10.000 consultas, 9 metodos testeados, resultados medibles.</p>
 
-    <!-- Bar Chart -->
     <div class="bar-chart reveal" id="barChart">
       <div class="bar-row">
         <span class="bar-label">Citar fuentes</span>
@@ -1667,7 +1638,6 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
       </div>
     </div>
 
-    <!-- Photo Grid: The 3 top strategies -->
     <div class="photo-grid reveal">
       <div class="photo-grid-item">
         <img src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?w=640&q=80" alt="Fuentes academicas y libros" loading="lazy">
@@ -1683,7 +1653,6 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
       </div>
     </div>
 
-    <!-- Strategy Cards -->
     <div class="strategies-grid stagger" style="margin-top: 3rem;">
       <div class="strategy-card">
         <div class="impact high">+30-40%</div>
@@ -1734,9 +1703,6 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
   </div>
 </section>
 
-<!-- ============================================
-     EDITORIAL TEXT SECTION 2 - Writing Guide
-     ============================================ -->
 <div class="editorial reveal">
   <div class="editorial-content">
     <p class="lead">Las IAs no leen como humanos. Dividen paginas en pasajes individuales y evaluan cada uno por relevancia, claridad y densidad factual.</p>
@@ -1746,13 +1712,10 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
       GPT-4 pasa de un 16% a un 54% de respuestas correctas cuando el contenido usa datos estructurados.
       <cite>&mdash; Estudio GEO-Bench, Princeton University, 2023</cite>
     </blockquote>
-    <p>El keyword stuffing no funciona en motores generativos. Los LLMs entienden semantica. Repetir keywords no mejora, puede empeorar. Si tu articulo dice lo mismo que 50 mas, la IA no te citara. Contenido generico sin fuentes, texto 100% IA sin edicion humana, listas sin contexto: todo esto perjudica tu visibilidad.</p>
+    <p>El keyword stuffing no funciona en motores generativos. Los LLMs entiende semantica. Repetir keywords no mejora, puede empeorar. Si tu articulo dice lo mismo que 50 mas, la IA no te citara. Contenido generico sin fuentes, texto 100% IA sin edicion humana, listas sin contexto: todo esto perjudica tu visibilidad.</p>
   </div>
 </div>
 
-<!-- ============================================
-     SPLIT IMAGE + TEXT: Schema Markup
-     ============================================ -->
 <div class="split reveal">
   <div class="split-text" style="order: -1;">
     <div class="section-label">Capitulo 6</div>
@@ -1768,9 +1731,6 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
 
 <div class="divider"></div>
 
-<!-- ============================================
-     E-E-A-T
-     ============================================ -->
 <section id="eeat">
   <div class="container">
     <div class="section-label reveal">Capitulo 8</div>
@@ -1807,9 +1767,6 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
   </div>
 </section>
 
-<!-- ============================================
-     PHOTO BREAK 3 - Platforms
-     ============================================ -->
 <div class="photo-break">
   <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=1920&q=80" alt="Plataformas tecnologicas digitales" loading="lazy">
   <div class="photo-break-overlay">
@@ -1820,9 +1777,6 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
   </div>
 </div>
 
-<!-- ============================================
-     PLATFORMS
-     ============================================ -->
 <section id="plataformas">
   <div class="container">
     <div class="section-label reveal">Capitulo 9</div>
@@ -1868,9 +1822,6 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
 
 <div class="divider"></div>
 
-<!-- ============================================
-     KPIs
-     ============================================ -->
 <section class="comparison" id="kpis">
   <div class="container">
     <div class="section-label reveal">Capitulo 10</div>
@@ -1889,9 +1840,6 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
   </div>
 </section>
 
-<!-- ============================================
-     SPLIT IMAGE + TEXT: Measurement
-     ============================================ -->
 <div class="split reveal">
   <div class="split-image">
     <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=960&q=80" alt="Dashboard de metricas y analytics" loading="lazy">
@@ -1909,9 +1857,6 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
 
 <div class="divider"></div>
 
-<!-- ============================================
-     ROADMAP 90 DAYS
-     ============================================ -->
 <section class="roadmap" id="roadmap">
   <div class="container">
     <div class="section-label reveal">Capitulo 12</div>
@@ -1956,9 +1901,6 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
   </div>
 </section>
 
-<!-- ============================================
-     PHOTO BREAK 4 - Results / Success
-     ============================================ -->
 <div class="photo-break">
   <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80" alt="Equipo de trabajo colaborando en resultados" loading="lazy">
   <div class="photo-break-overlay">
@@ -1969,9 +1911,6 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
   </div>
 </div>
 
-<!-- ============================================
-     BENCHMARKS & CASES
-     ============================================ -->
 <section id="benchmarks">
   <div class="container">
     <div class="section-label reveal">Capitulo 13</div>
@@ -2027,9 +1966,6 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
 
 <div class="divider"></div>
 
-<!-- ============================================
-     EDITORIAL TEXT 3 - Closing thoughts
-     ============================================ -->
 <div class="editorial reveal">
   <div class="editorial-content">
     <p class="lead">El mercado GEO en China alcanzo ~3.650M USD en H1 2025, con un crecimiento del 240% interanual. Los visitantes referidos por IA convierten 4,4x mas que trafico organico.</p>
@@ -2037,9 +1973,6 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
   </div>
 </div>
 
-<!-- ============================================
-     FUTURE TRENDS
-     ============================================ -->
 <section class="comparison" id="futuro">
   <div class="container">
     <div class="section-label reveal">Capitulo 14</div>
@@ -2083,9 +2016,6 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
 
 <div class="divider"></div>
 
-<!-- ============================================
-     CTA
-     ============================================ -->
 <section class="cta-section" id="cta">
   <div class="cta-bg-img"></div>
   <div class="container reveal">
@@ -2096,7 +2026,6 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
   </div>
 </section>
 
-<!-- Footer -->
 <footer>
   <div class="container">
     <p><span class="footer-brand">Guia Practica GEO 2026</span><br>
@@ -2105,14 +2034,11 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
   </div>
 </footer>
 
-<!-- ═══════════════════════════════════════════════
-     JAVASCRIPT
-     ═══════════════════════════════════════════════ -->
 <script>
 (function() {
   'use strict';
 
-  // Scroll Progress Bar
+  // 1. Scroll Progress Bar
   const progressBar = document.getElementById('scrollProgress');
   function updateProgress() {
     const scrollTop = window.scrollY;
@@ -2120,28 +2046,46 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
     progressBar.style.width = (scrollTop / docHeight) * 100 + '%';
   }
 
-  // Nav scroll
+  // 2. Nav scroll
   const nav = document.getElementById('nav');
   function updateNav() { nav.classList.toggle('scrolled', window.scrollY > 50); }
 
-  // Animated counter
+  // 3. Menú Móvil
+  const navToggle = document.getElementById('navToggle');
+  const navLinksContainer = document.querySelector('.nav-links');
+  
+  if(navToggle && navLinksContainer) {
+    navToggle.addEventListener('click', () => {
+      navLinksContainer.classList.toggle('active');
+    });
+  }
+
+  // 4. Animated counter
   function animateCounter(el) {
+    if (el.dataset.animating === 'true') return;
+    el.dataset.animating = 'true';
+    
     const target = parseInt(el.dataset.target);
     const prefix = el.dataset.prefix || '';
     const suffix = el.dataset.suffix || '';
     const duration = 2000;
     const startTime = performance.now();
+    
     function update(t) {
       const elapsed = t - startTime;
       const progress = Math.min(elapsed / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
       el.textContent = prefix + Math.round(eased * target).toLocaleString('es-ES') + suffix;
-      if (progress < 1) requestAnimationFrame(update);
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        el.dataset.animating = 'false';
+      }
     }
     requestAnimationFrame(update);
   }
 
-  // Bar chart animation
+  // 5. Bar chart animation
   function animateBars() {
     document.querySelectorAll('.bar-fill').forEach((bar, i) => {
       setTimeout(() => {
@@ -2151,26 +2095,32 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
     });
   }
 
-  // Donut chart animation
+  // 6. Donut chart animation
   function animateDonuts() {
     document.querySelectorAll('.donut-fill').forEach(circle => {
       const pct = parseInt(circle.dataset.pct);
-      const circumference = 2 * Math.PI * 45; // r=45
+      const circumference = 2 * Math.PI * 45;
       const dasharray = (pct / 100) * circumference;
       circle.style.strokeDasharray = dasharray + ' ' + circumference;
     });
   }
 
-  // Intersection Observer
+  // 7. Intersection Observer
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
+        
         entry.target.querySelectorAll('[data-target]').forEach(el => {
-          if (!el.dataset.animated) { el.dataset.animated = 'true'; animateCounter(el); }
+          if (!el.dataset.animated) { 
+            el.dataset.animated = 'true'; 
+            animateCounter(el); 
+          }
         });
+        
         if (entry.target.id === 'barChart') animateBars();
         if (entry.target.querySelectorAll('.donut-fill').length) animateDonuts();
+        
         observer.unobserve(entry.target);
       }
     });
@@ -2180,16 +2130,20 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
   const barChart = document.getElementById('barChart');
   if (barChart) observer.observe(barChart);
 
-  // Scroll events
+  // 8. Eventos de Scroll
   let ticking = false;
   window.addEventListener('scroll', () => {
     if (!ticking) {
-      requestAnimationFrame(() => { updateProgress(); updateNav(); ticking = false; });
+      window.requestAnimationFrame(() => { 
+        updateProgress(); 
+        updateNav(); 
+        ticking = false; 
+      });
       ticking = true;
     }
   });
 
-  // Active nav
+  // 9. Active nav
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
   window.addEventListener('scroll', () => {
@@ -2202,28 +2156,37 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
     });
   });
 
-  // Smooth scroll
+  // 10. Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
       const target = document.querySelector(link.getAttribute('href'));
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (target) {
+        if(navLinksContainer) navLinksContainer.classList.remove('active');
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     });
   });
 
-  // Funnel steps
-  const funnelSteps = document.querySelectorAll('.funnel-step');
-  if (funnelSteps.length) {
-    let currentStep = 0;
-    setInterval(() => {
-      funnelSteps.forEach(s => s.classList.remove('active'));
-      funnelSteps[currentStep].classList.add('active');
-      currentStep = (currentStep + 1) % funnelSteps.length;
-    }, 2500);
+  // 11. Conexión con data.json
+  async function cargarDatos() {
+    try {
+      const respuesta = await fetch('./data.json');
+      if (!respuesta.ok) throw new Error(`Error HTTP: ${respuesta.status}`);
+      const datos = await respuesta.json();
+      console.log('✅ Datos cargados con éxito:', datos);
+      
+      // Aquí conectaremos los datos de Leroy Merlin en el futuro
+      
+    } catch (error) {
+      console.error('❌ Error al cargar data.json:', error);
+    }
   }
 
+  // Inicialización
   updateProgress();
   updateNav();
+  cargarDatos();
 })();
 </script>
 </body>

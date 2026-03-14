@@ -167,10 +167,10 @@ body {
 
 /* Migas de pan (Breadcrumbs) flotantes */
 .breadcrumbs {
-  position: absolute;
+  position: fixed;
   top: 80px;
   left: 2rem;
-  z-index: 100;
+  z-index: 990;
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--text-secondary);
@@ -178,6 +178,13 @@ body {
   align-items: center;
   gap: 0.5rem;
   animation: fadeUp 0.8s ease-out;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
 }
 .breadcrumbs a {
   color: var(--text-secondary);
@@ -200,7 +207,6 @@ body {
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 0.3rem;
   transition: color 0.2s;
   padding: 0;
 }
@@ -1616,9 +1622,9 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
   .editorial-content blockquote { font-size: 1.2rem; }
   .donut-row { gap: 1.5rem; }
   
-  /* Ajuste responsivo Modal */
+  /* Ajuste responsivo Modal y Migas flotantes */
   .modal-content { padding: 2rem 1.5rem; max-height: 85vh; }
-  .breadcrumbs { top: 75px; left: 1rem; }
+  .breadcrumbs { top: 75px; left: 1rem; padding: 0.4rem 0.8rem; font-size: 0.8rem; }
 }
 
 @media (max-width: 600px) {
@@ -1693,14 +1699,16 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
 <!-- ============================================
      HERO
      ============================================ -->
-<section class="hero" id="hero">
-  <!-- Migas de pan añadidas dentro de la sección Hero -->
-  <div class="breadcrumbs">
-    <a href="#">Inicio</a>
-    <span class="separator">/</span>
-    <button class="breadcrumbs-btn" id="contenidosBtn">Contenidos ▾</button>
-  </div>
+<!-- Migas de pan flotantes (Fuera del Hero para que sean fijas) -->
+<div class="breadcrumbs">
+  <a href="#" id="btnVolverArriba">Inicio</a>
+  <span class="separator">/</span>
+  <button class="breadcrumbs-btn" id="contenidosBtn">
+    Contenidos ▾
+  </button>
+</div>
 
+<section class="hero" id="hero">
   <div class="hero-bg">
     <div class="hero-image"></div>
     <div class="hero-grid"></div>
@@ -2086,10 +2094,6 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
     <p class="lead">Las IAs no leen como humanos. Dividen páginas en pasajes individuales y evalúan cada uno por relevancia, claridad y densidad factual.</p>
     <p>Cada sección de tu contenido debe funcionar de forma autónoma. La respuesta va primero, el contexto después. Comienza cada sección con la respuesta directa en 40-60 palabras y luego expande. Las IAs extraen primeros párrafos con mayor frecuencia.</p>
     <p>La densidad factual es determinante: al menos un dato, estadística o referencia cada 150-200 palabras. Contenido denso en datos es más citable. Toda afirmación con fuente. Todo claim debe enlazar a su fuente primaria.</p>
-    <blockquote>
-      GPT-4 pasa de un 16% a un 54% de respuestas correctas cuando el contenido usa datos estructurados.
-      <cite>&mdash; Estudio GEO-Bench, Princeton University, 2023</cite>
-    </blockquote>
     <p>El keyword stuffing no funciona en motores generativos. Los LLMs entienden semántica. Repetir keywords no mejora, puede empeorar. Si tu artículo dice lo mismo que 50 más, la IA no te citará. Contenido genérico sin fuentes, texto 100% IA sin edición humana, listas sin contexto: todo esto perjudica tu visibilidad.</p>
   </div>
 </div>
@@ -2159,7 +2163,7 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
   <div class="photo-break-overlay">
     <div class="photo-break-text reveal">
       <h2><em>Cada plataforma tiene sus propias reglas. Optimizar para una no es optimizar para todas.</em></h2>
-      <p>ChatGPT, Gemini, Perplexity, Claude y Bing Copilot: estrategias específicas para cada motor.</p>
+      <p>ChatGPT, Gemini, Perplexity, Claude, Bing Copilot y Mode AI de Google: estrategias específicas para cada motor.</p>
     </div>
   </div>
 </div>
@@ -2624,6 +2628,15 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
       }
     });
   });
+
+  // 12. Lógica del botón "Inicio" en las migas (Volver arriba)
+  const btnVolverArriba = document.getElementById('btnVolverArriba');
+  if (btnVolverArriba) {
+    btnVolverArriba.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
   // Inicialización
   updateProgress();

@@ -674,4 +674,1617 @@ section { padding: 7rem 2rem; position: relative; }
   display: block;
 }
 
-.photo-grid-item:hover img {
+.photo-grid-item:hover img { transform: scale(1.08); }
+
+.photo-grid-item .photo-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  color: white;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════════
+   INFOGRAPHIC DONUT CHARTS
+   ═══════════════════════════════════════════════ */
+.donut-row {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin: 3rem 0;
+}
+
+.donut-item {
+  text-align: center;
+  width: 150px;
+}
+
+.donut-item svg {
+  width: 120px;
+  height: 120px;
+  transform: rotate(-90deg);
+}
+
+.donut-item .donut-bg { fill: none; stroke: var(--bg-secondary); stroke-width: 8; }
+.donut-item .donut-fill { fill: none; stroke-width: 8; stroke-linecap: round; stroke-dasharray: 0 283; transition: stroke-dasharray 1.5s ease-out; }
+
+.donut-item .donut-val {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.3rem;
+  margin-top: 0.75rem;
+  display: block;
+}
+
+.donut-item .donut-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+/* ═══════════════════════════════════════════════
+   PARADIGM SECTION
+   ═══════════════════════════════════════════════ */
+.paradigm { background: var(--bg-secondary); }
+
+.paradigm-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.funnel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.funnel-step {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: all 0.5s;
+}
+
+.funnel-step.active {
+  border-color: var(--accent);
+  background: rgba(120, 184, 51, 0.05);
+  box-shadow: 0 0 30px rgba(120, 184, 51, 0.1);
+}
+
+.funnel-num {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--accent);
+  min-width: 36px;
+}
+
+.funnel-text h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.2rem; }
+.funnel-text p { font-size: 0.8rem; color: var(--text-muted); }
+
+/* ═══════════════════════════════════════════════
+   NUMBERS SECTION
+   ═══════════════════════════════════════════════ */
+.numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.number-card {
+  padding: 2rem;
+  border-radius: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  text-align: center;
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+}
+
+.number-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.6s;
+}
+
+.number-card:hover::before { transform: scaleX(1); }
+.number-card:hover {
+  border-color: var(--border-accent);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+}
+
+.number-card .icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+
+.number-card .value {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.number-card:nth-child(1) .value { color: var(--accent); }
+.number-card:nth-child(2) .value { color: var(--blue); }
+.number-card:nth-child(3) .value { color: var(--green); }
+.number-card:nth-child(4) .value { color: var(--orange); }
+
+.number-card .desc { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; }
+
+/* ═══════════════════════════════════════════════
+   COMPARISON TABLE
+   ═══════════════════════════════════════════════ */
+.comparison { background: var(--bg-secondary); }
+
+.comparison-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+}
+
+.comparison-table thead th {
+  background: var(--bg-secondary);
+  padding: 1.2rem 1.5rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-align: left;
+  border-bottom: 2px solid var(--accent);
+}
+
+.comparison-table thead th:first-child { color: var(--text-muted); }
+.comparison-table thead th:nth-child(2) { color: var(--text-secondary); }
+.comparison-table thead th:nth-child(3) { color: var(--accent-light); }
+
+.comparison-table tbody td {
+  padding: 1rem 1.5rem;
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+.comparison-table tbody tr:last-child td { border-bottom: none; }
+.comparison-table tbody tr:hover td { background: rgba(120, 184, 51, 0.03); }
+.comparison-table tbody td:first-child { font-weight: 600; color: var(--text-primary); white-space: nowrap; }
+.comparison-table tbody td:nth-child(3) { color: var(--accent-light); font-weight: 600;}
+
+/* ═══════════════════════════════════════════════
+   LAYERS VISUAL
+   ═══════════════════════════════════════════════ */
+.layers-visual {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 3rem auto;
+}
+
+.layer {
+  padding: 1.5rem 2rem;
+  text-align: center;
+  transition: all 0.5s;
+  cursor: default;
+  background: var(--bg-card);
+}
+
+.layer:nth-child(1) {
+  background: rgba(120, 184, 51, 0.1);
+  border: 1px solid var(--border-accent);
+  border-radius: 12px 12px 0 0;
+}
+
+.layer:nth-child(2) {
+  background: rgba(88,166,255,0.05);
+  border: 1px solid rgba(88,166,255,0.2);
+  border-top: none;
+}
+
+.layer:nth-child(3) {
+  background: rgba(46,160,67,0.05);
+  border: 1px solid rgba(46,160,67,0.2);
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+}
+
+.layer:hover { transform: scale(1.02); }
+.layer h4 { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; margin-bottom: 0.3rem; }
+.layer:nth-child(1) h4 { color: var(--accent-light); }
+.layer:nth-child(2) h4 { color: var(--blue); }
+.layer:nth-child(3) h4 { color: var(--green); }
+.layer p { font-size: 0.85rem; color: var(--text-secondary); }
+
+/* ═══════════════════════════════════════════════
+   STRATEGIES
+   ═══════════════════════════════════════════════ */
+.strategies-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.strategy-card {
+  padding: 2rem;
+  border-radius: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: all 0.4s;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+}
+
+.strategy-card:hover {
+  border-color: var(--border-accent);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+}
+
+.strategy-card .impact {
+  display: inline-flex;
+  padding: 0.3rem 0.7rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: var(--font-display);
+  margin-bottom: 1rem;
+}
+
+.strategy-card .impact.high { background: rgba(120, 184, 51, 0.1); color: var(--accent-light); border: 1px solid var(--border-accent); }
+.strategy-card .impact.medium { background: rgba(88,166,255,0.08); color: var(--blue); border: 1px solid rgba(88,166,255,0.2); }
+.strategy-card .impact.low { background: rgba(46,160,67,0.08); color: var(--green); border: 1px solid rgba(46,160,67,0.2); }
+
+.strategy-card h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary);}
+.strategy-card p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+
+/* Bar chart */
+.bar-chart { margin: 3rem 0; }
+.bar-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.8rem; }
+.bar-label { min-width: 160px; font-size: 0.85rem; font-weight: 500; text-align: right; color: var(--text-secondary); }
+.bar-track { flex: 1; height: 32px; background: var(--bg-secondary); border-radius: 6px; overflow: hidden; border: 1px solid var(--border); }
+.bar-fill {
+  height: 100%;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 0.75rem;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #ffffff; /* Texto claro para mejor contraste sobre las barras */
+  width: 0;
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.bar-fill.accent { background: linear-gradient(90deg, var(--accent), var(--accent-light)); }
+.bar-fill.blue { background: linear-gradient(90deg, #3a7bd5, var(--blue)); color: white; }
+.bar-fill.green { background: linear-gradient(90deg, #2d8a4e, var(--green)); color: white; }
+.bar-fill.orange { background: linear-gradient(90deg, #c77a2e, var(--orange)); color: white; }
+.bar-fill.muted { background: rgba(110,118,129,0.5); color: white; }
+
+/* ═══════════════════════════════════════════════
+   PLATFORM CARDS
+   ═══════════════════════════════════════════════ */
+.platform-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.platform-card {
+  padding: 2rem;
+  border-radius: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: all 0.4s;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+}
+
+.platform-card:hover {
+  border-color: var(--border-accent);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+}
+
+.platform-card .platform-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+
+.platform-card .platform-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 800;
+  font-family: var(--font-display);
+}
+
+.platform-card:nth-child(1) .platform-icon { background: rgba(46,160,67,0.1); color: var(--green); }
+.platform-card:nth-child(2) .platform-icon { background: rgba(88,166,255,0.1); color: var(--blue); }
+.platform-card:nth-child(3) .platform-icon { background: rgba(191,135,0,0.1); color: var(--orange); }
+.platform-card:nth-child(4) .platform-icon { background: rgba(130,80,223,0.1); color: var(--purple); }
+
+.platform-card h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--text-primary); }
+.platform-card .pref { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.75rem; line-height: 1.6; }
+.platform-card .strategy {
+  font-size: 0.8rem;
+  color: var(--accent-light);
+  padding: 0.5rem 0.75rem;
+  background: var(--accent-glow);
+  border-radius: 8px;
+  border: 1px solid var(--border-accent);
+  display: inline-block;
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════════
+   KPI METRICS
+   ═══════════════════════════════════════════════ */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.25rem;
+}
+
+.kpi-card {
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: all 0.3s;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+
+.kpi-card:hover { border-color: var(--border-accent); background: var(--bg-card-hover); }
+
+.kpi-dot { width: 10px; height: 10px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+
+.kpi-card:nth-child(1) .kpi-dot { background: var(--accent); }
+.kpi-card:nth-child(2) .kpi-dot { background: var(--blue); }
+.kpi-card:nth-child(3) .kpi-dot { background: var(--green); }
+.kpi-card:nth-child(4) .kpi-dot { background: var(--orange); }
+.kpi-card:nth-child(5) .kpi-dot { background: var(--purple); }
+.kpi-card:nth-child(6) .kpi-dot { background: var(--yellow); }
+.kpi-card:nth-child(7) .kpi-dot { background: var(--accent-light); }
+
+.kpi-card h4 { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem; color: var(--text-primary);}
+.kpi-card p { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; }
+
+/* ═══════════════════════════════════════════════
+   ROADMAP
+   ═══════════════════════════════════════════════ */
+.roadmap { background: var(--bg-secondary); }
+
+.roadmap-timeline { position: relative; padding-left: 3rem; }
+
+.roadmap-timeline::before {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent), var(--blue), var(--green));
+}
+
+.roadmap-month { position: relative; margin-bottom: 3rem; }
+.roadmap-month:last-child { margin-bottom: 0; }
+
+.roadmap-dot {
+  position: absolute;
+  left: -3rem;
+  top: 0.3rem;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 800;
+  z-index: 1;
+}
+
+.roadmap-month:nth-child(1) .roadmap-dot { background: var(--accent); color: #ffffff; } 
+.roadmap-month:nth-child(2) .roadmap-dot { background: var(--blue); color: #ffffff; }
+.roadmap-month:nth-child(3) .roadmap-dot { background: var(--green); color: #ffffff; }
+
+.roadmap-month h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; margin-bottom: 0.3rem; }
+.roadmap-month:nth-child(1) h3 { color: var(--accent-light); }
+.roadmap-month:nth-child(2) h3 { color: var(--blue); }
+.roadmap-month:nth-child(3) h3 { color: var(--green); }
+.roadmap-month .subtitle { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; display: block; }
+
+.roadmap-weeks { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+
+.roadmap-week {
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: all 0.3s;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+.roadmap-week:hover { border-color: var(--border-accent); }
+.roadmap-week .week-num { font-family: var(--font-display); font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.3rem; }
+.roadmap-week p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; }
+
+/* ═══════════════════════════════════════════════
+   BENCHMARKS
+   ═══════════════════════════════════════════════ */
+.benchmark-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  margin-bottom: 3rem;
+  background: var(--bg-card);
+}
+
+.benchmark-table thead th {
+  background: var(--bg-secondary);
+  padding: 1rem 1.2rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-align: center;
+  border-bottom: 2px solid var(--accent);
+}
+
+.benchmark-table thead th:first-child { text-align: left; color: var(--text-primary); }
+.benchmark-table thead th:nth-child(2) { color: var(--text-muted); }
+.benchmark-table thead th:nth-child(3) { color: var(--blue); }
+.benchmark-table thead th:nth-child(4) { color: var(--orange); }
+.benchmark-table thead th:nth-child(5) { color: var(--green); }
+
+.benchmark-table tbody td {
+  padding: 0.9rem 1.2rem;
+  font-size: 0.85rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+.benchmark-table tbody td:first-child { text-align: left; font-weight: 600; color: var(--text-primary); }
+.benchmark-table tbody tr:last-child td { border-bottom: none; }
+.benchmark-table tbody tr:hover td { background: rgba(120,184,51,0.03); }
+
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.25rem;
+}
+
+.case-card {
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+.case-card:hover { border-color: var(--border-accent); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.05); }
+.case-card .case-result { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: var(--accent-light); margin-bottom: 0.3rem; }
+.case-card .case-name { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--text-primary);}
+.case-card .case-desc { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; }
+
+/* ═══════════════════════════════════════════════
+   E-E-A-T
+   ═══════════════════════════════════════════════ */
+.eeat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.eeat-card {
+  padding: 2rem;
+  border-radius: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+}
+.eeat-card:hover { border-color: var(--border-accent); transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.05); }
+.eeat-card .eeat-letter { font-family: var(--font-display); font-weight: 900; font-size: 2.5rem; margin-bottom: 0.5rem; line-height: 1; }
+.eeat-card:nth-child(1) .eeat-letter { color: var(--accent); }
+.eeat-card:nth-child(2) .eeat-letter { color: var(--blue); }
+.eeat-card:nth-child(3) .eeat-letter { color: var(--orange); }
+.eeat-card:nth-child(4) .eeat-letter { color: var(--green); }
+.eeat-card h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary);}
+.eeat-card p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+
+/* ═══════════════════════════════════════════════
+   TRENDS
+   ═══════════════════════════════════════════════ */
+.trends-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.trend-card {
+  padding: 2rem;
+  border-radius: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+}
+
+.trend-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  transform: scaleX(0);
+  transition: transform 0.5s;
+}
+.trend-card:hover::after { transform: scaleX(1); }
+.trend-card:nth-child(1)::after { background: var(--accent); }
+.trend-card:nth-child(2)::after { background: var(--blue); }
+.trend-card:nth-child(3)::after { background: var(--green); }
+.trend-card:nth-child(4)::after { background: var(--orange); }
+.trend-card:nth-child(5)::after { background: var(--purple); }
+.trend-card:nth-child(6)::after { background: var(--yellow); }
+
+.trend-card:hover { border-color: var(--border-accent); transform: translateY(-4px); box-shadow: 0 15px 30px rgba(0,0,0,0.06); }
+.trend-card .trend-num { font-family: var(--font-display); font-weight: 800; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.trend-card h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary); }
+.trend-card p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+
+/* ═══════════════════════════════════════════════
+   CALLOUT
+   ═══════════════════════════════════════════════ */
+.callout {
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-glow);
+  margin: 2rem 0;
+}
+.callout h4 { font-family: var(--font-display); color: var(--accent-light); font-weight: 700; font-size: 0.95rem; margin-bottom: 0.5rem; }
+.callout p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+
+/* ═══════════════════════════════════════════════
+   CTA SECTION
+   ═══════════════════════════════════════════════ */
+.cta-section {
+  background: linear-gradient(135deg, rgba(120,184,51,0.08), rgba(88,166,255,0.05));
+  text-align: center;
+  padding: 6rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section .cta-bg-img {
+  position: absolute;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80') center/cover;
+  opacity: 0.04;
+  filter: grayscale(1);
+}
+
+.cta-section h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1rem; position: relative; color: var(--text-primary);}
+.cta-section p { font-size: 1.1rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem; position: relative; }
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2rem;
+  background: var(--accent);
+  color: #ffffff; /* Texto claro */
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  position: relative;
+}
+.cta-btn:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(120,184,51,0.3); }
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════ */
+footer {
+  padding: 3rem 2rem;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  background: var(--bg-primary);
+}
+footer p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.6; }
+footer .footer-brand { font-family: var(--font-display); font-weight: 700; color: var(--text-secondary); }
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  /* Parche visual para el menú activo en móviles */
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    background: var(--bg-card);
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  }
+  .nav-toggle { display: block; }
+  .paradigm-grid, .split, .eeat-grid, .before-after { grid-template-columns: 1fr; }
+  .hero-stats { grid-template-columns: 1fr; max-width: 320px; }
+  .numbers-grid { grid-template-columns: repeat(2, 1fr); }
+  .strategies-grid, .platform-cards, .trends-grid { grid-template-columns: 1fr; }
+  .roadmap-weeks { grid-template-columns: 1fr; }
+  .bar-label { min-width: 100px; font-size: 0.75rem; }
+  .photo-grid { grid-template-columns: 1fr; }
+  section { padding: 4rem 1.25rem; }
+  .split-text { padding: 2.5rem 1.5rem; }
+  .editorial-content blockquote { font-size: 1.2rem; }
+  .donut-row { gap: 1.5rem; }
+}
+
+@media (max-width: 600px) {
+  .numbers-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 2.8rem; }
+  .photo-break { height: 40vh; min-height: 250px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Scroll Progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo"><span>GEO</span> 2026</a>
+    <ul class="nav-links">
+      <li><a href="#paradigma">El cambio</a></li>
+      <li><a href="#capas">SEO vs GEO</a></li>
+      <li><a href="#estrategias">Estrategias</a></li>
+      <li><a href="#plataformas">Plataformas</a></li>
+      <li><a href="#eeat">E-E-A-T</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
+      <li><a href="#benchmarks">Benchmarks</a></li>
+      <li><a href="#futuro">Futuro</a></li>
+      <li><a href="#cta" class="nav-cta">Empezar</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menú">&#9776;</button>
+  </div>
+</nav>
+
+<!-- ============================================
+     HERO
+     ============================================ -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <div class="hero-image"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">Febrero 2026 &mdash; Basado en la investigación de Princeton</div>
+    <h1>Generative Engine<br><span class="accent">Optimization</span></h1>
+    <p class="hero-subtitle">Todo lo que necesitas saber para posicionar tu marca en ChatGPT, Gemini, Perplexity y AI Overviews.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="number" data-target="527" data-prefix="+" data-suffix="%">0</span>
+        <span class="label">Crecimiento sesiones referidas por IA</span>
+      </div>
+      <div class="hero-stat">
+        <span class="number" data-target="60" data-suffix="%">0</span>
+        <span class="label">Búsquedas zero-click en Google</span>
+      </div>
+      <div class="hero-stat">
+        <span class="number" data-target="25" data-prefix="-" data-suffix="%">0</span>
+        <span class="label">Caída predicha búsqueda tradicional</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <span>Scroll</span>
+    <div class="arrow"></div>
+  </div>
+</section>
+
+<!-- ============================================
+     EDITORIAL TEXT SECTION 1
+     ============================================ -->
+<div class="editorial reveal">
+  <div class="editorial-content">
+    <p class="lead">La búsqueda tal y como la conocíamos ha dejado de existir. Los motores de inteligencia artificial generativa han cambiado las reglas del juego para siempre.</p>
+    <p class="dropcap">Durante 25 años, la búsqueda en internet funcionó igual: el usuario escribía una consulta, el motor devolvía 10 enlaces azules, y el usuario hacía clic. Ese modelo está cambiando radicalmente. Ahora, los motores generativos leen miles de fuentes, sintetizan la información y ofrecen una respuesta directa. El usuario ya no necesita hacer clic. Y las marcas que no estén preparadas para este nuevo paradigma, simplemente dejarán de existir en las respuestas que reciben millones de personas cada día.</p>
+    <blockquote>
+      Las ventajas son acumulativas: cada mes sin optimizar es un mes que tus competidores construyen señales que tú no ganas.
+      <cite>&mdash; Guía Práctica GEO 2026, NCompany</cite>
+    </blockquote>
+    <p>GEO &mdash; Generative Engine Optimization &mdash; es la disciplina de optimizar contenido digital para que sea citado, referenciado y sintetizado por motores de IA como ChatGPT, Google Gemini, Perplexity, Claude y Google AI Overviews. No se trata de aparecer en una lista. Se trata de ser <span class="stat-inline">la fuente</span> que la IA elige cuando un usuario hace una pregunta.</p>
+  </div>
+</div>
+
+<!-- ============================================
+     PHOTO BREAK 1 - AI & Technology
+     ============================================ -->
+<div class="photo-break">
+  <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1920&q=80" alt="Inteligencia artificial y datos" loading="lazy">
+  <div class="photo-break-overlay">
+    <div class="photo-break-text reveal">
+      <h2><em>El 71% de los consumidores ya usa IA para investigar compras.</em></h2>
+      <p>La pregunta no es si tu marca necesita GEO. Es cuánto tardarás en implementarlo.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     PARADIGM SHIFT + RAG DIAGRAM
+     ============================================ -->
+<section class="paradigm" id="paradigma">
+  <div class="container">
+    <div class="paradigm-grid">
+      <div class="reveal-left">
+        <div class="section-label">Capítulo 1 & 2</div>
+        <h2 class="section-title">El cambio de paradigma</h2>
+        <p class="section-desc">Los motores generativos no funcionan como Google. Usan un proceso llamado RAG (Retrieval-Augmented Generation) que cambia por completo las reglas del posicionamiento.</p>
+        <div class="callout">
+          <h4>Dato clave</h4>
+          <p>Los LLMs solo citan entre 2 y 7 dominios por respuesta de media, muy por debajo de los 10 enlaces azules de Google. La competencia por ser citado es mucho más intensa.</p>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <!-- SVG RAG Process Diagram (Colores adaptados al fondo blanco) -->
+        <div class="diagram-container">
+          <svg viewBox="0 0 500 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Step 1 -->
+            <rect x="140" y="10" width="220" height="60" rx="12" fill="#ffffff" stroke="#78b833" stroke-width="1.5"/>
+            <text x="250" y="32" text-anchor="middle" fill="#78b833" font-family="Space Grotesk,sans-serif" font-size="11" font-weight="700">PASO 1</text>
+            <text x="250" y="52" text-anchor="middle" fill="#111827" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="600">Consulta del usuario</text>
+            <!-- Arrow 1 -->
+            <line x1="250" y1="70" x2="250" y2="105" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <polygon points="244,100 256,100 250,112" fill="#9ca3af"/>
+            <!-- Step 2 -->
+            <rect x="100" y="115" width="300" height="60" rx="12" fill="#ffffff" stroke="#0969da" stroke-width="1.5"/>
+            <text x="250" y="137" text-anchor="middle" fill="#0969da" font-family="Space Grotesk,sans-serif" font-size="11" font-weight="700">PASO 2</text>
+            <text x="250" y="157" text-anchor="middle" fill="#111827" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="600">Recuperación &amp; Embedding</text>
+            <!-- Arrow 2 -->
+            <line x1="250" y1="175" x2="250" y2="210" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <polygon points="244,205 256,205 250,217" fill="#9ca3af"/>
+            <!-- Step 3 -->
+            <rect x="100" y="220" width="300" height="60" rx="12" fill="#ffffff" stroke="#bf8700" stroke-width="1.5"/>
+            <text x="250" y="242" text-anchor="middle" fill="#bf8700" font-family="Space Grotesk,sans-serif" font-size="11" font-weight="700">PASO 3</text>
+            <text x="250" y="262" text-anchor="middle" fill="#111827" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="600">Evaluación: Autoridad + Frescura</text>
+            <!-- Arrow 3 -->
+            <line x1="250" y1="280" x2="250" y2="315" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <polygon points="244,310 256,310 250,322" fill="#9ca3af"/>
+            <!-- Step 4 -->
+            <rect x="80" y="325" width="340" height="70" rx="14" fill="rgba(120,184,51,0.05)" stroke="#78b833" stroke-width="2"/>
+            <text x="250" y="350" text-anchor="middle" fill="#5a8f24" font-family="Space Grotesk,sans-serif" font-size="11" font-weight="700">PASO 4</text>
+            <text x="250" y="373" text-anchor="middle" fill="#111827" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="700">Generación: Respuesta con fuentes</text>
+            <!-- Side labels -->
+            <text x="30" y="150" fill="#9ca3af" font-family="Inter,sans-serif" font-size="9" transform="rotate(-90,30,150)">Fragmentos tokenizados</text>
+            <text x="470" y="250" fill="#9ca3af" font-family="Inter,sans-serif" font-size="9" transform="rotate(90,470,250)">Solo 2-7 dominios citados</text>
+            <!-- Decorative dots -->
+            <circle cx="60" y="45" r="3" fill="#78b833" opacity="0.4"/>
+            <circle cx="440" y="345" r="3" fill="#0969da" opacity="0.4"/>
+            <circle cx="450" y="130" r="4" fill="#bf8700" opacity="0.3"/>
+            <text x="250" y="415" text-anchor="middle" fill="#6e7681" font-family="Inter,sans-serif" font-size="10">Proceso RAG (Retrieval-Augmented Generation)</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================
+     KEY NUMBERS with DONUT CHARTS
+     ============================================ -->
+<section id="numeros" style="padding-bottom: 4rem;">
+  <div class="container">
+    <div class="section-label reveal">Los números</div>
+    <h2 class="section-title reveal">La adopción masiva de la búsqueda por IA</h2>
+
+    <!-- Donut Charts -->
+    <div class="donut-row reveal">
+      <div class="donut-item">
+        <svg viewBox="0 0 100 100">
+          <circle class="donut-bg" cx="50" cy="50" r="45"/>
+          <circle class="donut-fill" cx="50" cy="50" r="45" stroke="var(--accent)" data-pct="71"/>
+        </svg>
+        <span class="donut-val" style="color:var(--accent)">71%</span>
+        <span class="donut-label">Usa IA para investigar compras</span>
+      </div>
+      <div class="donut-item">
+        <svg viewBox="0 0 100 100">
+          <circle class="donut-bg" cx="50" cy="50" r="45"/>
+          <circle class="donut-fill" cx="50" cy="50" r="45" stroke="var(--blue)" data-pct="89"/>
+        </svg>
+        <span class="donut-val" style="color:var(--blue)">89%</span>
+        <span class="donut-label">B2B usa IA generativa (Forrester)</span>
+      </div>
+      <div class="donut-item">
+        <svg viewBox="0 0 100 100">
+          <circle class="donut-bg" cx="50" cy="50" r="45"/>
+          <circle class="donut-fill" cx="50" cy="50" r="45" stroke="var(--green)" data-pct="60"/>
+        </svg>
+        <span class="donut-val" style="color:var(--green)">60%</span>
+        <span class="donut-label">Recuperación de info vía IA generativa</span>
+      </div>
+      <div class="donut-item">
+        <svg viewBox="0 0 100 100">
+          <circle class="donut-bg" cx="50" cy="50" r="45"/>
+          <circle class="donut-fill" cx="50" cy="50" r="45" stroke="var(--orange)" data-pct="16"/>
+        </svg>
+        <span class="donut-val" style="color:var(--orange)">16%</span>
+        <span class="donut-label">Búsquedas EE.UU. con respuesta IA</span>
+      </div>
+    </div>
+
+    <div class="numbers-grid stagger" style="margin-top:2rem;">
+      <div class="number-card">
+        <span class="icon">&#x1F4AC;</span>
+        <span class="value" data-target="800" data-suffix="M">0</span>
+        <span class="desc">Usuarios semanales en ChatGPT</span>
+      </div>
+      <div class="number-card">
+        <span class="icon">&#x1F310;</span>
+        <span class="value" data-target="750" data-suffix="M">0</span>
+        <span class="desc">Usuarios mensuales Gemini + AI Overviews</span>
+      </div>
+      <div class="number-card">
+        <span class="icon">&#x1F4CA;</span>
+        <span class="value" data-target="45" data-suffix="M">0</span>
+        <span class="desc">Usuarios mensuales Perplexity</span>
+      </div>
+      <div class="number-card">
+        <span class="icon">&#x26A1;</span>
+        <span class="value" data-target="4" data-suffix=",4x">0</span>
+        <span class="desc">Mayor conversión tráfico IA vs orgánico</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SPLIT IMAGE + TEXT: Why GEO now?
+     ============================================ -->
+<div class="split reveal">
+  <div class="split-image">
+    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=960&q=80" alt="Datos y servidores tecnologia" loading="lazy">
+  </div>
+  <div class="split-text">
+    <div class="section-label">Por qué ahora</div>
+    <div class="highlight-num">2026</div>
+    <h2>El punto de inflexión</h2>
+    <p>La adopción de búsqueda por IA ha pasado de experimentación a lealtad de plataforma. Los usuarios ya tienen su motor generativo favorito. Las conferencias GEO, herramientas dedicadas y equipos internos confirman que no es moda: es el nuevo estándar.</p>
+    <p>A Q1 2026, la IA generativa representa más del <strong style="color:var(--accent-light)">60%</strong> de la recuperación de información. Las marcas que no optimicen para motores generativos dejarán de ser visibles.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================
+     SEO vs GEO COMPARISON
+     ============================================ -->
+<section class="comparison" id="capas">
+  <div class="container">
+    <div class="section-label reveal">Capítulo 3</div>
+    <h2 class="section-title reveal">GEO vs SEO vs AEO</h2>
+    <p class="section-desc reveal">Tres disciplinas complementarias que se construyen como capas.</p>
+
+    <div class="layers-visual reveal-scale">
+      <div class="layer">
+        <h4>GEO &mdash; Capa Superior</h4>
+        <p>Optimiza para la síntesis: citas de autoridad, estadísticas, quotes, contenido verificable</p>
+      </div>
+      <div class="layer">
+        <h4>AEO &mdash; Capa Intermedia</h4>
+        <p>FAQ, preguntas-respuestas claras, datos estructurados. Schema FAQPage: 3,2x más visibilidad</p>
+      </div>
+      <div class="layer">
+        <h4>SEO &mdash; Capa Base</h4>
+        <p>Estructura técnica, autoridad de dominio, experiencia de usuario como señal de calidad</p>
+      </div>
+    </div>
+
+    <div class="reveal" style="overflow-x:auto;">
+      <table class="comparison-table">
+        <thead>
+          <tr><th>Factor</th><th>SEO Tradicional</th><th>GEO / Motores Generativos</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Fuente</td><td>Lista URLs indexadas</td><td>Síntesis de múltiples fuentes</td></tr>
+          <tr><td>Factor de ranking</td><td>Backlinks + keywords</td><td>Autoridad de citación + datos estructurados</td></tr>
+          <tr><td>Intención</td><td>Keywords rígidas</td><td>Consultas conversacionales</td></tr>
+          <tr><td>Métrica principal</td><td>Posición en SERP</td><td>Visibilidad en respuesta IA</td></tr>
+          <tr><td>Competencia</td><td>Top 10 resultados</td><td>2-7 dominios citados</td></tr>
+          <tr><td>Contenido ideal</td><td>Optimizado para keywords</td><td>Denso en datos, verificable, estructurado</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     PHOTO BREAK 2 - Editorial / Content
+     ============================================ -->
+<div class="photo-break">
+  <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1920&q=80" alt="Datos y visualizaciones analiticas" loading="lazy">
+  <div class="photo-break-overlay">
+    <div class="photo-break-text reveal">
+      <h2><em>Solo 2-7 dominios son citados por respuesta. La competencia nunca fue tan intensa.</em></h2>
+      <p>Las 9 estrategias de Princeton te dicen exactamente cómo ganar ese puesto.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     9 STRATEGIES + BAR CHART
+     ============================================ -->
+<section id="estrategias">
+  <div class="container">
+    <div class="section-label reveal">Capítulo 4 & 5</div>
+    <h2 class="section-title reveal">Las 9 estrategias probadas de GEO</h2>
+    <p class="section-desc reveal">Basadas en el estudio GEO-Bench de Princeton: 10.000 consultas, 9 métodos testeados, resultados medibles.</p>
+
+    <!-- Bar Chart -->
+    <div class="bar-chart reveal" id="barChart">
+      <div class="bar-row">
+        <span class="bar-label">Citar fuentes</span>
+        <div class="bar-track"><div class="bar-fill accent" data-width="85" data-val="+30-40%"></div></div>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Citas textuales</span>
+        <div class="bar-track"><div class="bar-fill accent" data-width="85" data-val="+30-40%"></div></div>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Estadísticas</span>
+        <div class="bar-track"><div class="bar-fill accent" data-width="85" data-val="+30-40%"></div></div>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Terminología técnica</span>
+        <div class="bar-track"><div class="bar-fill blue" data-width="60" data-val="+28%"></div></div>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Fluidez</span>
+        <div class="bar-track"><div class="bar-fill green" data-width="50" data-val="+15-30%"></div></div>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Simplificación</span>
+        <div class="bar-track"><div class="bar-fill green" data-width="50" data-val="+15-30%"></div></div>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Tono autoritario</span>
+        <div class="bar-track"><div class="bar-fill orange" data-width="25" data-val="+8%"></div></div>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Keyword stuffing</span>
+        <div class="bar-track"><div class="bar-fill muted" data-width="10" data-val="Ineficaz"></div></div>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Optimización genérica</span>
+        <div class="bar-track"><div class="bar-fill muted" data-width="5" data-val="Sin impacto"></div></div>
+      </div>
+    </div>
+
+    <!-- Photo Grid: The 3 top strategies -->
+    <div class="photo-grid reveal">
+      <div class="photo-grid-item">
+        <img src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?w=640&q=80" alt="Fuentes academicas y libros" loading="lazy">
+        <div class="photo-label">Citar fuentes acreditadas &mdash; +30-40%</div>
+      </div>
+      <div class="photo-grid-item">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=640&q=80" alt="Estadisticas y datos graficos" loading="lazy">
+        <div class="photo-label">Estadísticas concretas &mdash; +30-40%</div>
+      </div>
+      <div class="photo-grid-item">
+        <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=640&q=80" alt="Expertos y quotes" loading="lazy">
+        <div class="photo-label">Quotes de expertos &mdash; +30-40%</div>
+      </div>
+    </div>
+
+    <!-- Strategy Cards -->
+    <div class="strategies-grid stagger" style="margin-top: 3rem;">
+      <div class="strategy-card">
+        <div class="impact high">+30-40%</div>
+        <h3>1. Citar fuentes acreditadas</h3>
+        <p>Incluye referencias a fuentes autoritativas: investigación académica, documentación oficial, publicaciones reconocidas.</p>
+      </div>
+      <div class="strategy-card">
+        <div class="impact high">+30-40%</div>
+        <h3>2. Estadísticas concretas</h3>
+        <p>Los números específicos hacen tu contenido más citable y verificable. Las IAs prefieren datos cuantitativos.</p>
+      </div>
+      <div class="strategy-card">
+        <div class="impact high">+30-40%</div>
+        <h3>3. Quotes de expertos</h3>
+        <p>Las citas textuales de expertos reconocidos añaden credibilidad y son frecuentemente extraídas por IAs.</p>
+      </div>
+      <div class="strategy-card">
+        <div class="impact medium">+28%</div>
+        <h3>4. Terminología técnica</h3>
+        <p>Vocabulario estándar de tu industria. Los LLMs reconocen terminología específica como señal de expertise.</p>
+      </div>
+      <div class="strategy-card">
+        <div class="impact medium">+15-30%</div>
+        <h3>5. Fluidez y legibilidad</h3>
+        <p>Mejora estructura de frases, claridad y flujo lógico. Las IAs priorizan contenido fácil de parsear.</p>
+      </div>
+      <div class="strategy-card">
+        <div class="impact low">Respuesta directa</div>
+        <h3>6. Estructura de respuesta</h3>
+        <p>Coloca la respuesta directa en las primeras 40-60 palabras. Las IAs extraen frecuentemente frases iniciales.</p>
+      </div>
+      <div class="strategy-card">
+        <div class="impact low">FAQ friendly</div>
+        <h3>7. Preguntas en headings</h3>
+        <p>Convierte H2 y H3 en formato pregunta. Se mapean con cómo los usuarios consultan IAs.</p>
+      </div>
+      <div class="strategy-card">
+        <div class="impact low">Secciones FAQ</div>
+        <h3>8. FAQ dedicadas</h3>
+        <p>5-10 preguntas como H3 con respuestas de 40-60 palabras extraíbles independientemente.</p>
+      </div>
+      <div class="strategy-card">
+        <div class="impact high">Diferenciación</div>
+        <h3>9. Contenido original</h3>
+        <p>Investigación original, datos propietarios, frameworks propios. Si publicas algo único, la IA te cita sobre alternativas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     EDITORIAL TEXT SECTION 2 - Writing Guide
+     ============================================ -->
+<div class="editorial reveal">
+  <div class="editorial-content">
+    <p class="lead">Las IAs no leen como humanos. Dividen páginas en pasajes individuales y evalúan cada uno por relevancia, claridad y densidad factual.</p>
+    <p>Cada sección de tu contenido debe funcionar de forma autónoma. La respuesta va primero, el contexto después. Comienza cada sección con la respuesta directa en 40-60 palabras y luego expande. Las IAs extraen primeros párrafos con mayor frecuencia.</p>
+    <p>La densidad factual es determinante: al menos un dato, estadística o referencia cada 150-200 palabras. Contenido denso en datos es más citable. Toda afirmación con fuente. Todo claim debe enlazar a su fuente primaria.</p>
+    <blockquote>
+      GPT-4 pasa de un 16% a un 54% de respuestas correctas cuando el contenido usa datos estructurados.
+      <cite>&mdash; Estudio GEO-Bench, Princeton University, 2023</cite>
+    </blockquote>
+    <p>El keyword stuffing no funciona en motores generativos. Los LLMs entienden semántica. Repetir keywords no mejora, puede empeorar. Si tu artículo dice lo mismo que 50 más, la IA no te citará. Contenido genérico sin fuentes, texto 100% IA sin edición humana, listas sin contexto: todo esto perjudica tu visibilidad.</p>
+  </div>
+</div>
+
+<!-- ============================================
+     SPLIT IMAGE + TEXT: Schema Markup
+     ============================================ -->
+<div class="split reveal">
+  <div class="split-text" style="order: -1;">
+    <div class="section-label">Capítulo 6</div>
+    <h2>Schema Markup y datos estructurados</h2>
+    <p>Los datos estructurados son el puente entre tu contenido y los motores IA. Sin schema, la IA adivina contexto. Con schema correcto, le das un mapa de lectura claro.</p>
+    <p>Las páginas con schema <strong style="color:var(--accent-light)">FAQPage</strong> tienen 3,2x más probabilidad de aparecer en AI Overviews. Usa JSON-LD en el head del HTML. Valida con Google Rich Results Test.</p>
+    <p style="font-size:0.85rem;color:var(--text-muted);margin-top:1rem;">Schemas clave: FAQPage, Article/BlogPosting, Organization, Product+Review, Person, HowTo, LocalBusiness, Speakable</p>
+  </div>
+  <div class="split-image">
+    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=960&q=80" alt="Codigo y desarrollo web schema" loading="lazy">
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================
+     E-E-A-T
+     ============================================ -->
+<section id="eeat">
+  <div class="container">
+    <div class="section-label reveal">Capítulo 8</div>
+    <h2 class="section-title reveal">E-E-A-T en el contexto GEO</h2>
+    <p class="section-desc reveal">Es aún más crítico en GEO que en SEO tradicional. Las IAs evalúan autoridad de forma holística, no solo a nivel de página sino de marca.</p>
+
+    <div class="eeat-grid stagger">
+      <div class="eeat-card">
+        <div class="eeat-letter">E</div>
+        <h3>Experience (Experiencia)</h3>
+        <p>Casos prácticos con resultados reales, testimonios verificables y datos propios de primera mano. La IA distingue entre alguien que escribe sobre un tema y alguien que lo ha vivido.</p>
+      </div>
+      <div class="eeat-card">
+        <div class="eeat-letter">E</div>
+        <h3>Expertise (Expertise)</h3>
+        <p>Perfiles de autor completos con bio visible, credenciales verificables y schema Person vinculado. Artículos firmados por expertos reconocidos.</p>
+      </div>
+      <div class="eeat-card">
+        <div class="eeat-letter">A</div>
+        <h3>Authoritativeness (Autoridad)</h3>
+        <p>Presencia cross-platform: tu marca en LinkedIn, Wikipedia, reviews de terceros. Las co-citaciones son señal de autoridad incluso sin enlaces.</p>
+      </div>
+      <div class="eeat-card">
+        <div class="eeat-letter">T</div>
+        <h3>Trustworthiness (Confianza)</h3>
+        <p>Transparencia en autoría, fuentes citadas, timestamps claros y consistencia cross-platform. Reviews en G2, Capterra, Trustpilot refuerzan confianza.</p>
+      </div>
+    </div>
+
+    <div class="callout reveal" style="margin-top:2rem;">
+      <h4>Earned media > Owned media</h4>
+      <p>Los motores generativos favorecen menciones editoriales de terceros sobre contenido propio. Guest posts, cobertura de prensa, menciones en Reddit y LinkedIn, y reviews de usuarios son las señales más potentes para GEO.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     PHOTO BREAK 3 - Platforms
+     ============================================ -->
+<div class="photo-break">
+  <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=1920&q=80" alt="Plataformas tecnologicas digitales" loading="lazy">
+  <div class="photo-break-overlay">
+    <div class="photo-break-text reveal">
+      <h2><em>Cada plataforma tiene sus propias reglas. Optimizar para una no es optimizar para todas.</em></h2>
+      <p>ChatGPT, Gemini, Perplexity, Claude y Bing Copilot: estrategias específicas para cada motor.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     PLATFORMS
+     ============================================ -->
+<section id="plataformas">
+  <div class="container">
+    <div class="section-label reveal">Capítulo 9</div>
+    <h2 class="section-title reveal">Optimizar para cada plataforma</h2>
+    <p class="section-desc reveal">Cada motor generativo tiene preferencias y particularidades.</p>
+
+    <div class="platform-cards stagger">
+      <div class="platform-card">
+        <div class="platform-header">
+          <div class="platform-icon">G</div>
+          <h3>ChatGPT</h3>
+        </div>
+        <p class="pref">Contenido enciclopédico, neutral, autoritativo. Citas externas. Parafrasea el contenido original.</p>
+        <span class="strategy">Recursos definitivos y exhaustivos. Ser la fuente más completa.</span>
+      </div>
+      <div class="platform-card">
+        <div class="platform-header">
+          <div class="platform-icon">G</div>
+          <h3>Gemini / AI Overviews</h3>
+        </div>
+        <p class="pref">Prioriza contenido bien posicionado en Google. Schema. Featured Snippets.</p>
+        <span class="strategy">SEO fuerte + schema. Top 10 orgánico = mayor probabilidad de citación.</span>
+      </div>
+      <div class="platform-card">
+        <div class="platform-header">
+          <div class="platform-icon">P</div>
+          <h3>Perplexity</h3>
+        </div>
+        <p class="pref">Contenido reciente, conversacional, con ejemplos. Experiencia de comunidad.</p>
+        <span class="strategy">Actualizar frecuentemente. Ejemplos reales. Presencia en Reddit.</span>
+      </div>
+      <div class="platform-card">
+        <div class="platform-header">
+          <div class="platform-icon">C</div>
+          <h3>Claude</h3>
+        </div>
+        <p class="pref">Bien estructurado, preciso, fuentes verificables. Exactitud factual.</p>
+        <span class="strategy">Precisión absoluta y atribución clara de todas las afirmaciones.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================
+     KPIs
+     ============================================ -->
+<section class="comparison" id="kpis">
+  <div class="container">
+    <div class="section-label reveal">Capítulo 10</div>
+    <h2 class="section-title reveal">Medición y KPIs</h2>
+    <p class="section-desc reveal">Los dashboards de Google Analytics no capturan visibilidad en IA. Necesitas nuevas métricas.</p>
+
+    <div class="kpi-grid stagger">
+      <div class="kpi-card"><div class="kpi-dot"></div><div><h4>AI Share of Voice</h4><p>Menciones tuyas / Total menciones x set de prompts.</p></div></div>
+      <div class="kpi-card"><div class="kpi-dot"></div><div><h4>Citation Rate</h4><p>Respuestas que te citan / Total prompts. Top: >30%. Elite: >50%.</p></div></div>
+      <div class="kpi-card"><div class="kpi-dot"></div><div><h4>Prompt Coverage</h4><p>Prompts donde apareces / Total prompts testeados.</p></div></div>
+      <div class="kpi-card"><div class="kpi-dot"></div><div><h4>Brand Sentiment</h4><p>Tono con que la IA presenta tu marca.</p></div></div>
+      <div class="kpi-card"><div class="kpi-dot"></div><div><h4>Link Rate</h4><p>Citaciones con link / Total citaciones.</p></div></div>
+      <div class="kpi-card"><div class="kpi-dot"></div><div><h4>AI Referral Traffic</h4><p>GA4: filtrar chat.openai.com, perplexity.ai, gemini.google.com.</p></div></div>
+      <div class="kpi-card"><div class="kpi-dot"></div><div><h4>AI Conversion Rate</h4><p>Conversiones IA / Total visitas IA. Media: 4,4x mayor que orgánico.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SPLIT IMAGE + TEXT: Measurement
+     ============================================ -->
+<div class="split reveal">
+  <div class="split-image">
+    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=960&q=80" alt="Dashboard de metricas y analytics" loading="lazy">
+  </div>
+  <div class="split-text">
+    <div class="section-label">Cómo empezar a medir</div>
+    <h2>5 pasos para implementar medición GEO</h2>
+    <p><strong style="color:var(--accent)">1.</strong> Define 20-50 prompts que tus clientes ideales harían a una IA.</p>
+    <p><strong style="color:var(--accent)">2.</strong> Testa mensualmente en ChatGPT, Gemini y Perplexity.</p>
+    <p><strong style="color:var(--accent)">3.</strong> Calcula Share of Voice y compara con competidores.</p>
+    <p><strong style="color:var(--accent)">4.</strong> Configura GA4 para rastrear tráfico referido por IA.</p>
+    <p><strong style="color:var(--accent)">5.</strong> Conecta métricas IA con resultados de negocio.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================
+     ROADMAP 90 DAYS
+     ============================================ -->
+<section class="roadmap" id="roadmap">
+  <div class="container">
+    <div class="section-label reveal">Capítulo 12</div>
+    <h2 class="section-title reveal">Plan de acción: 90 días</h2>
+    <p class="section-desc reveal">GEO no es proyecto puntual sino disciplina continua. Este plan te lleva de cero a operación GEO funcional.</p>
+
+    <div class="roadmap-timeline reveal">
+      <div class="roadmap-month">
+        <div class="roadmap-dot">1</div>
+        <h3>Mes 1: Auditoría y base</h3>
+        <span class="subtitle">Semanas 1-4</span>
+        <div class="roadmap-weeks">
+          <div class="roadmap-week"><div class="week-num">Semana 1</div><p>Auditoría: Testa 30-50 prompts clave en ChatGPT, Gemini, Perplexity.</p></div>
+          <div class="roadmap-week"><div class="week-num">Semana 2</div><p>Mapeo prompts: Identifica preguntas de clientes ideales en cada fase del funnel.</p></div>
+          <div class="roadmap-week"><div class="week-num">Semana 3</div><p>Auditoría técnica: Revisa schema, estructura, velocidad, datos estructurados.</p></div>
+          <div class="roadmap-week"><div class="week-num">Semana 4</div><p>Plan contenido: Define 10-15 piezas prioritarias.</p></div>
+        </div>
+      </div>
+      <div class="roadmap-month">
+        <div class="roadmap-dot">2</div>
+        <h3>Mes 2: Optimización y creación</h3>
+        <span class="subtitle">Semanas 5-8</span>
+        <div class="roadmap-weeks">
+          <div class="roadmap-week"><div class="week-num">Semanas 5-6</div><p>Aplica 9 estrategias GEO al contenido prioritario. Añade citas, stats, FAQ, schema.</p></div>
+          <div class="roadmap-week"><div class="week-num">Semana 7</div><p>Crea 2-3 piezas pillar desde cero optimizadas: guías definitivas.</p></div>
+          <div class="roadmap-week"><div class="week-num">Semana 8</div><p>Implementa schema FAQPage, Article, Organization, Person. Valida.</p></div>
+          <div class="roadmap-week"><div class="week-num">GA4</div><p>Configura Google Analytics para rastrear tráfico referido por IA.</p></div>
+        </div>
+      </div>
+      <div class="roadmap-month">
+        <div class="roadmap-dot">3</div>
+        <h3>Mes 3: Amplificación y medición</h3>
+        <span class="subtitle">Semanas 9-12</span>
+        <div class="roadmap-weeks">
+          <div class="roadmap-week"><div class="week-num">Semanas 9-10</div><p>Amplificación: Distribuye en LinkedIn, Reddit, YouTube. Busca earned media.</p></div>
+          <div class="roadmap-week"><div class="week-num">Semana 11</div><p>Medición: Repite test prompts del Mes 1. Compara SoV, citation rate.</p></div>
+          <div class="roadmap-week"><div class="week-num">Semana 12</div><p>Iteración: Analiza resultados. Ajusta y define prioridades siguiente trimestre.</p></div>
+          <div class="roadmap-week"><div class="week-num">Ongoing</div><p>Revisiones mensuales mínimo. Semanal si ejecutas campañas GEO activas.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     PHOTO BREAK 4 - Results / Success
+     ============================================ -->
+<div class="photo-break">
+  <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80" alt="Equipo de trabajo colaborando en resultados" loading="lazy">
+  <div class="photo-break-overlay">
+    <div class="photo-break-text reveal">
+      <h2><em>Los datos no mienten. Las empresas que implementan GEO ven resultados reales.</em></h2>
+      <p>+500% conversión, +934% rankings, $15M en leads. Estos son los números reales.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     BENCHMARKS & CASES
+     ============================================ -->
+<section id="benchmarks">
+  <div class="container">
+    <div class="section-label reveal">Capítulo 13</div>
+    <h2 class="section-title reveal">Benchmarks y casos de éxito</h2>
+
+    <div class="reveal" style="overflow-x:auto;">
+      <table class="benchmark-table">
+        <thead><tr><th>Métrica</th><th>Básico</th><th>Medio</th><th>Top Tier</th><th>Elite</th></tr></thead>
+        <tbody>
+          <tr><td>Citation Rate</td><td>&lt;10%</td><td>10-30%</td><td>&gt;30%</td><td>&gt;50%</td></tr>
+          <tr><td>AI Share of Voice</td><td>&lt;5%</td><td>5-15%</td><td>15-30%</td><td>&gt;30%</td></tr>
+          <tr><td>Prompt Coverage</td><td>&lt;20%</td><td>20-40%</td><td>40-60%</td><td>&gt;60%</td></tr>
+          <tr><td>AI Referral Growth</td><td>-</td><td>+100-200%</td><td>+300-500%</td><td>+527%+</td></tr>
+          <tr><td>AI Conv. vs Orgánico</td><td>1x</td><td>2x</td><td>3-4x</td><td>4,4x+</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cases-grid stagger" style="margin-top:2rem;">
+      <div class="case-card">
+        <div class="case-result">91% market share</div>
+        <div class="case-name">Clemson University</div>
+        <p class="case-desc">En AI Overviews en su categoría combinando contenido authoritative con expertise humana.</p>
+      </div>
+      <div class="case-card">
+        <div class="case-result">+500% conversión</div>
+        <div class="case-name">Fortune 500 (automoción)</div>
+        <p class="case-desc">+300% consultas showroom y +500% conversión ventas tras implementar GEO.</p>
+      </div>
+      <div class="case-card">
+        <div class="case-result">+934% rankings</div>
+        <div class="case-name">Cadence (tech)</div>
+        <p class="case-desc">230 leads valorados en $15M lifetime value vía thought leadership GEO.</p>
+      </div>
+      <div class="case-card">
+        <div class="case-result">+$731K tráfico</div>
+        <div class="case-name">Zendesk</div>
+        <p class="case-desc">+94% tráfico orgánico vía infografías originales y estudios propios.</p>
+      </div>
+      <div class="case-card">
+        <div class="case-result">+210% exposición</div>
+        <div class="case-name">Inmobiliaria</div>
+        <p class="case-desc">4x conversiones citas online tras implementar estrategia GEO completa.</p>
+      </div>
+      <div class="case-card">
+        <div class="case-result">~$3.650M</div>
+        <div class="case-name">Mercado GEO China</div>
+        <p class="case-desc">Volumen en H1 2025, crecimiento del 240% interanual. GEO es negocio directo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================
+     EDITORIAL TEXT 3 - Closing thoughts
+     ============================================ -->
+<div class="editorial reveal">
+  <div class="editorial-content">
+    <p class="lead">El mercado GEO en China alcanzó ~3.650M USD en H1 2025, con un crecimiento del 240% interanual. Los visitantes referidos por IA convierten 4,4x más que tráfico orgánico.</p>
+    <p>GEO no es solo visibilidad: es negocio directo. Las empresas que lo entienden no lo tratan como un proyecto puntual sino como una disciplina continua. La visibilidad en IA se construye acumulativamente: señales de autoridad se componen con el tiempo, creando ventajas progresivas para los que empiezan antes.</p>
+  </div>
+</div>
+
+<!-- ============================================
+     FUTURE TRENDS
+     ============================================ -->
+<section class="comparison" id="futuro">
+  <div class="container">
+    <div class="section-label reveal">Capítulo 14</div>
+    <h2 class="section-title reveal">Tendencias 2026-2027</h2>
+    <p class="section-desc reveal">Lo que viene en el horizonte del Generative Engine Optimization.</p>
+
+    <div class="trends-grid stagger">
+      <div class="trend-card">
+        <div class="trend-num">Tendencia 01</div>
+        <h3>Optimización multimodal</h3>
+        <p>Las IAs procesan imágenes, audio y video. Infografías, videos de expertos y podcasts serán fuentes citables.</p>
+      </div>
+      <div class="trend-card">
+        <div class="trend-num">Tendencia 02</div>
+        <h3>De keywords a entidades</h3>
+        <p>GEO se centra en entidades (marca, productos, equipo). Las IAs analizan cómo tu marca está representada.</p>
+      </div>
+      <div class="trend-card">
+        <div class="trend-num">Tendencia 03</div>
+        <h3>Agentes IA compradores</h3>
+        <p>Los agentes IA tomarán decisiones de compra. Requieren datos de producto precisos y pricing transparente.</p>
+      </div>
+      <div class="trend-card">
+        <div class="trend-num">Tendencia 04</div>
+        <h3>GEO cross-funcional</h3>
+        <p>Intersección de content marketing, SEO, digital PR, product marketing y desarrollo técnico.</p>
+      </div>
+      <div class="trend-card">
+        <div class="trend-num">Tendencia 05</div>
+        <h3>Medición estandarizada</h3>
+        <p>El Quality Score se expandirá como métrica unificada en SEO, AEO y GEO.</p>
+      </div>
+      <div class="trend-card">
+        <div class="trend-num">Tendencia 06</div>
+        <h3>Regulación y ética</h3>
+        <p>Surgirán cuestiones regulatorias sobre transparencia, atribución y competencia justa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================
+     CTA
+     ============================================ -->
+<section class="cta-section" id="cta">
+  <div class="cta-bg-img"></div>
+  <div class="container reveal">
+    <div class="section-label" style="justify-content: center;">Siguiente paso</div>
+    <h2>Cada mes sin optimizar es un mes que tus competidores construyen señales que tú no ganas.</h2>
+    <p>La visibilidad en IA se construye acumulativamente. Las ventajas son progresivas para los que empiezan antes.</p>
+    <a href="#hero" class="cta-btn">Volver arriba &uarr;</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p><span class="footer-brand">Guía Práctica GEO 2026</span><br>
+    Elaborada por Nestor Guerra &mdash; NCompany<br>
+    Consultoría en IA, Innovación y Formación &mdash; Febrero 2026</p>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════
+     JAVASCRIPT
+     ═══════════════════════════════════════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  // 1. Scroll Progress Bar
+  const progressBar = document.getElementById('scrollProgress');
+  function updateProgress() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = (scrollTop / docHeight) * 100 + '%';
+  }
+
+  // 2. Nav scroll
+  const nav = document.getElementById('nav');
+  function updateNav() { nav.classList.toggle('scrolled', window.scrollY > 50); }
+
+  // 3. Menú Móvil
+  const navToggle = document.getElementById('navToggle');
+  const navLinksContainer = document.querySelector('.nav-links');
+  
+  if(navToggle && navLinksContainer) {
+    navToggle.addEventListener('click', () => {
+      navLinksContainer.classList.toggle('active');
+    });
+  }
+
+  // 4. Animated counter
+  function animateCounter(el) {
+    if (el.dataset.animating === 'true') return;
+    el.dataset.animating = 'true';
+    
+    const target = parseInt(el.dataset.target);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const duration = 2000;
+    const startTime = performance.now();
+    
+    function update(t) {
+      const elapsed = t - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = prefix + Math.round(eased * target).toLocaleString('es-ES') + suffix;
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        el.dataset.animating = 'false';
+      }
+    }
+    requestAnimationFrame(update);
+  }
+
+  // 5. Bar chart animation
+  function animateBars() {
+    document.querySelectorAll('.bar-fill').forEach((bar, i) => {
+      setTimeout(() => {
+        bar.style.width = bar.dataset.width + '%';
+        if (parseInt(bar.dataset.width) > 20) bar.textContent = bar.dataset.val;
+      }, i * 120);
+    });
+  }
+
+  // 6. Donut chart animation
+  function animateDonuts() {
+    document.querySelectorAll('.donut-fill').forEach(circle => {
+      const pct = parseInt(circle.dataset.pct);
+      const circumference = 2 * Math.PI * 45;
+      const dasharray = (pct / 100) * circumference;
+      circle.style.strokeDasharray = dasharray + ' ' + circumference;
+    });
+  }
+
+  // 7. Intersection Observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        
+        entry.target.querySelectorAll('[data-target]').forEach(el => {
+          if (!el.dataset.animated) { 
+            el.dataset.animated = 'true'; 
+            animateCounter(el); 
+          }
+        });
+        
+        if (entry.target.id === 'barChart') animateBars();
+        if (entry.target.querySelectorAll('.donut-fill').length) animateDonuts();
+        
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger').forEach(el => observer.observe(el));
+  const barChart = document.getElementById('barChart');
+  if (barChart) observer.observe(barChart);
+
+  // 8. Eventos de Scroll optimizados
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => { 
+        updateProgress(); 
+        updateNav(); 
+        ticking = false; 
+      });
+      ticking = true;
+    }
+  });
+
+  // 9. Active nav
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
+  window.addEventListener('scroll', () => {
+    const scrollPos = window.scrollY + 200;
+    sections.forEach(section => {
+      const top = section.offsetTop, height = section.offsetHeight, id = section.getAttribute('id');
+      if (scrollPos >= top && scrollPos < top + height) {
+        navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + id));
+      }
+    });
+  });
+
+  // 10. Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        if(navLinksContainer) navLinksContainer.classList.remove('active');
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Inicialización
+  updateProgress();
+  updateNav();
+})();
+</script>
+</body>
+</html>

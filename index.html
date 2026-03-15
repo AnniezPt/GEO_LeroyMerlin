@@ -160,7 +160,7 @@ body {
   display: none;
   background: none;
   border: none;
-  color: var(--text-primary);
+  color: #e02424;
   font-size: 1.5rem;
   cursor: pointer;
 }
@@ -324,7 +324,7 @@ body {
 .modal-card.highlight-card {
   background: linear-gradient(135deg, rgba(120,184,51,0.05), rgba(120,184,51,0.15));
   border-color: var(--border-accent);
-  grid-column: 1 / -1; /* Ocupa todo el ancho disponible */
+  grid-column: 1 / -1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -544,76 +544,6 @@ body {
   line-height: 1.6;
   font-weight: 400;
   animation: fadeUp 0.8s ease-out 0.2s both;
-}
-
-.hero-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  max-width: 700px;
-  margin: 0 auto;
-  animation: fadeUp 0.8s ease-out 0.4s both;
-}
-
-.hero-stat {
-  text-align: center;
-  padding: 1.5rem;
-  border-radius: 12px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-  transition: all 0.3s;
-}
-
-.hero-stat:hover {
-  border-color: var(--border-accent);
-  background: var(--accent-glow);
-  transform: translateY(-2px);
-}
-
-.hero-stat .number {
-  font-family: var(--font-display);
-  font-size: 2.2rem;
-  font-weight: 800;
-  margin-bottom: 0.3rem;
-  display: block;
-}
-
-.hero-stat:nth-child(1) .number { color: var(--accent); }
-.hero-stat:nth-child(2) .number { color: var(--blue); }
-.hero-stat:nth-child(3) .number { color: var(--orange); }
-
-.hero-stat .label {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  line-height: 1.4;
-}
-
-.hero-scroll-hint {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--text-muted);
-  font-size: 0.75rem;
-  animation: bounce 2s infinite;
-}
-
-.hero-scroll-hint .arrow {
-  width: 20px;
-  height: 20px;
-  border-right: 2px solid var(--text-muted);
-  border-bottom: 2px solid var(--text-muted);
-  transform: rotate(45deg);
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(8px); }
 }
 
 /* ═══════════════════════════════════════════════
@@ -1665,7 +1595,7 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
     <h2 class="modal-title">Explorar Contenidos</h2>
     <p class="modal-desc">Accede a ediciones anteriores y descarga nuestra guía práctica completa.</p>
     
-    <!-- NUEVO: Controles de navegación arriba -->
+    <!-- Controles de navegación arriba -->
     <div class="modal-nav-actions">
       <!-- Botón para volver a la home principal de noticias -->
       <a href="https://landing-page-leroy.com/" class="cta-btn btn-secondary">← Volver a inicio</a>
@@ -1682,7 +1612,7 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
       </div>
     </div>
 
-    <!-- NUEVO: Zona de PDFs abajo para que pueda crecer en el futuro -->
+    <!-- Zona de PDFs abajo para que pueda crecer en el futuro -->
     <div>
       <h3 class="modal-pdfs-title">Documentos y Guías</h3>
       <!-- Tarjeta Destacada: PDF -->
@@ -1697,14 +1627,14 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
 </div>
 
 <!-- ============================================
-     HERO
+     HERO & BREADCRUMBS
      ============================================ -->
 <!-- Migas de pan flotantes (Fuera del Hero para que sean fijas) -->
 <div class="breadcrumbs">
   <a href="#" id="btnVolverArriba">Inicio</a>
   <span class="separator">/</span>
   <button class="breadcrumbs-btn" id="contenidosBtn">
-    Contenidos ▾
+    Contenidos <span style="color: #e02424; margin-left: 0.2rem;">▾</span>
   </button>
 </div>
 
@@ -1718,24 +1648,9 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
     <div class="hero-badge">Febrero 2026 &mdash; Basado en la investigación de Princeton</div>
     <h1>Generative Engine<br><span class="accent">Optimization</span></h1>
     <p class="hero-subtitle">Todo lo que necesitas saber para posicionar tu marca en ChatGPT, Gemini, Perplexity y AI Overviews.</p>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <span class="number" data-target="527" data-prefix="+" data-suffix="%">0</span>
-        <span class="label">Crecimiento sesiones referidas por IA</span>
-      </div>
-      <div class="hero-stat">
-        <span class="number" data-target="60" data-suffix="%">0</span>
-        <span class="label">Búsquedas zero-click en Google</span>
-      </div>
-      <div class="hero-stat">
-        <span class="number" data-target="25" data-prefix="-" data-suffix="%">0</span>
-        <span class="label">Caída predicha búsqueda tradicional</span>
-      </div>
-    </div>
-  </div>
-  <div class="hero-scroll-hint">
-    <span>Scroll</span>
-    <div class="arrow"></div>
+    
+    <!-- 🛑 Aquí se han eliminado las 3 tarjetas de estadísticas (hero-stats) 
+         y el indicador de scroll (hero-scroll-hint) a petición del usuario -->
   </div>
 </section>
 

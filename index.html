@@ -2424,13 +2424,25 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
       }
     });
 
-    // Lógica del selector de fechas (navega automáticamente al seleccionar)
+    // Lógica del selector de fechas (navega o muestra mensaje)
     if (editionSelect) {
+      const emptyMsg = document.getElementById('emptyDateMessage');
+      
       editionSelect.addEventListener('change', (e) => {
         const url = e.target.value;
-        if (url) {
-          window.open(url, '_blank'); // Abre en una pestaña nueva
-          e.target.value = ''; // Reinicia el selector tras la navegación
+        
+        if (url === 'empty') {
+          // Si es una fecha antigua, mostramos el mensaje
+          if (emptyMsg) emptyMsg.style.display = 'block';
+          e.target.value = ''; // Reinicia el selector
+        } else if (url) {
+          // Si es una fecha con contenido, ocultamos mensaje y vamos a la web
+          if (emptyMsg) emptyMsg.style.display = 'none';
+          window.open(url, '_blank'); 
+          e.target.value = ''; 
+        } else {
+          // Si vuelve a "Selecciona una fecha...", ocultamos el mensaje
+          if (emptyMsg) emptyMsg.style.display = 'none';
         }
       });
     }

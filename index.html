@@ -160,7 +160,7 @@ body {
   display: none;
   background: none;
   border: none;
-  color: #e02424;
+  color: #e02424; /* 🔴 Color rojo para móvil */
   font-size: 1.5rem;
   cursor: pointer;
 }
@@ -402,10 +402,12 @@ body {
 /* Controles del Dropdown de fechas */
 .archive-controls {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .date-select {
@@ -1601,14 +1603,20 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
       <a href="https://landing-page-leroy.com/" class="cta-btn btn-secondary">← Volver a inicio</a>
       
       <!-- Dropdown de Ediciones Anteriores -->
-      <div class="archive-controls">
+      <div class="archive-controls" style="width: 100%;">
         <select id="editionSelect" class="date-select">
           <option value="">Selecciona una fecha...</option>
-          <option value="https://landing-page-leroy.com/edicion-11-marzo">11 de Marzo de 2026</option>
-          <option value="https://landing-page-leroy.com/edicion-06-marzo">06 de Marzo de 2026</option>
-          <option value="https://landing-page-leroy.com/edicion-28-febrero">28 de Febrero de 2026</option>
-          <option value="https://landing-page-leroy.com/edicion-27-febrero">27 de Febrero de 2026</option>
+          <!-- Todas estas fechas lanzarán el mensaje poético al no existir contenido -->
+          <option value="empty">11 de Marzo de 2026</option>
+          <option value="empty">06 de Marzo de 2026</option>
+          <option value="empty">28 de Febrero de 2026</option>
+          <option value="empty">27 de Febrero de 2026</option>
         </select>
+        
+        <!-- El mensaje oculto por defecto -->
+        <div id="emptyDateMessage" style="display: none; width: 100%; text-align: center; margin-top: 2rem; padding: 2rem; background: var(--accent-glow); border: 1px dashed var(--accent); border-radius: 12px; color: var(--text-primary); font-family: var(--font-display); font-size: 1.3rem; animation: fadeUp 0.4s ease-out;">
+          Toda gran historia empieza en algún punto. Este contenido aún no existía en esa fecha.
+        </div>
       </div>
     </div>
 
@@ -1648,9 +1656,6 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
     <div class="hero-badge">Febrero 2026 &mdash; Basado en la investigación de Princeton</div>
     <h1>Generative Engine<br><span class="accent">Optimization</span></h1>
     <p class="hero-subtitle">Todo lo que necesitas saber para posicionar tu marca en ChatGPT, Gemini, Perplexity y AI Overviews.</p>
-    
-    <!-- 🛑 Aquí se han eliminado las 3 tarjetas de estadísticas (hero-stats) 
-         y el indicador de scroll (hero-scroll-hint) a petición del usuario -->
   </div>
 </section>
 
@@ -2436,7 +2441,7 @@ footer .footer-brand { font-family: var(--font-display); font-weight: 700; color
           if (emptyMsg) emptyMsg.style.display = 'block';
           e.target.value = ''; // Reinicia el selector
         } else if (url) {
-          // Si es una fecha con contenido, ocultamos mensaje y vamos a la web
+          // Si es una fecha con contenido real, ocultamos mensaje y vamos a la web
           if (emptyMsg) emptyMsg.style.display = 'none';
           window.open(url, '_blank'); 
           e.target.value = ''; 
